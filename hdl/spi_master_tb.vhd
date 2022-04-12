@@ -28,9 +28,9 @@ architecture tb of spi_master_tb is
     constant C_CLK_PER   : time    := 20 ns;
 
     signal sim_clk       : std_logic := '0';
-	signal sim_rst_n     : std_logic := '1';
+    signal sim_rst_n     : std_logic := '1';
     signal sim_req       : std_logic := '0';
-	signal sim_stop      : boolean 	:= FALSE;
+    signal sim_stop      : boolean 	:= FALSE;
     signal sim_data      : std_logic_vector(7 downto 0) := (others=>'0');
 
     signal spi_clk       : std_logic := '0';
@@ -68,13 +68,13 @@ begin
         end procedure init;
 
         procedure load(
-			constant data    : std_logic_vector(7 downto 0)) is
-		begin
-			sim_data(7 downto 0)    <= data(7 downto 0);
-			sim_req                 <= '1';
+            constant data    : std_logic_vector(7 downto 0)) is
+        begin
+            sim_data(7 downto 0)    <= data(7 downto 0);
+            sim_req                 <= '1';
             wait for C_CLK_PER;
             sim_req                 <= '0';
-		end procedure load;
+        end procedure load;
 
     begin
 
